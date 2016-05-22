@@ -1,3 +1,1 @@
-Git is a version control system.
-Git is free software.
-du diao han jiang xue 
+用Django开发了一个简易版的知乎，前端使用Jquery以及Bootstrap框架，实现了注册、登陆、提问、回答、评论、可以关注他人、重新上传头像等功能。
