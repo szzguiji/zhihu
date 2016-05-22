@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}
+	知乎-与世界分享你的知识、经验和见解
+{% endblock %}
+{% block nav %}
+{% if user.is_authenticated %}
+{{ block.super }}
+{% else %}
+{% endif %}
+{% endblock %}
+
+{% block logn %}
+{% if user.is_authenticated %}
+{% else %}
+<div class="inner">
+			<div class="inner-header">
+				<h1 class="logo">知乎</h1>
+				<h2 class="subtitle">与世界分享你的知识、经验和见解</h2>
+			</div>
+			<div class="inner-nav">
+				<ul class="nav nav-pills">
+					<li class="active"><a href="#signin" id="signin">注册</a></li>
+					<li class="active"><a href="#signup" id="signup">登陆</a></li>
+				</ul>
+			</div>
+			<div class="signin">
+				<form role="form" method="POST" action="{% url 'polls:register' %}">
+					<div class="form-group">
+						<input type="text" id="username" class="form-control" name="username" placeholder="姓名">
+						<span class="tishi"></span>
+					</div>
+					<div class="form-group">
+						<input type="email" id="email" class="form-control" name="email" placeholder="邮箱">
+						<span class="tishi"></span>
+					</div>
+					<div class="form-group">
+						<input type="password" id="password" class="form-control" name="password" placeholder="密码（不少于6位）">
+						<span class="tishi"></span>
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary btn-block" id="zhuce" value="注册知乎">
+					</div>
+				</form>
+			</div>
+			<div class="signup">
+				<form role="form" method="POST" action="{% url 'polls:userLogin' %}" style="">
+					<div class="form-group">
+						<input type="email" class="form-control" id="id_email" name="email" placeholder="邮箱">
+						<span class="tishi"></span>
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" id="id_password" name="password" placeholder="密码">
+						<span class="tishi"></span>
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary btn-block" id="denglu" value="登录">
+					</div>
+					<div class="inner-form-middle">
+						<input type="checkbox" name="remember_me" value="true">
+						<span>记住我</span>
+						<a href="">无法登录?</a>
+					</div>
+				</form>
+			</div>
+		</div>
+{% endif %}
+{% endblock %}
+
+{% block main %}
+{% if user.is_authenticated %}
+	<div class="row">
+		<div class="col-md-8">
+<div class="list-title">
+	<span class="glyphicon glyphicon-th-list"></span>
+		最新动态
+	<span class="shezhi">
+		<span class="glyphicon glyphicon-cog"></span>
+		设置
+	</span>
+</div>
+<div class="main">
+	{% for data in datas %}
+	{% if data.data_name == "answer"%}
+	<div class="content-item">
+		<div class="avatar">
+			<a href="">
+				<img class="img-avatar" src="https://pic1.zhimg.com/1e5c8d2384fb2c3d4379107b17ded1bc_m.jpg">
+			</a>
+		</div>
+	    <div class="item-main">
+			<div class="item-source">
+				<a href="{% url 'polls:people' data.author.id %}">{{ data.author.name }}</a>回答了该问题
+			</div>
+			<div class="item-content">
+				<h2><a href="{% url 'polls:question' data.question.id %}">{{ data.question.title }}</a></h2>
+				<div class="entry-body">
+					<div class="item-text">
+						<div class="text-content">怎么电话客户</div>
+						<div class="text-summary">{{ data.content }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% else %}
+	<div class="content-item">
+		<div class="avatar">
+			<a href="">
+				<img class="img-avatar" src="https://pic1.zhimg.com/1e5c8d2384fb2c3d4379107b17ded1bc_m.jpg">
+			</a>
+		</div>
+	    <div class="item-main">
+			<div class="item-source">
+				{{ data.asker.name }}提了一个问题
+			</div>
+			<div class="item-content">
+				<h2><a href="{% url 'polls:question' data.id %}">{{ data.title }}</a></h2>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	{% endfor %}
+</div>
+<div class="fenye">
+<ul class="pagination">
+	{% if datas.has_previous %}
+	<li><a href="?page={{ paginator.previous_page_number }}">&laquo;</a></li>
+	{% endif %}
+
+	{% for page_number in paginator.page_range %}
+  	<li><a href="?page={{ page_number }}">{{ page_number }}</a></li>
+  	{% endfor %}
+
+  	{% if datas.has_next %}
+	<li><a href="?page={{ paginator.next_page_number }}">&laquo;</a></li>
+	{% endif %}
+</ul>
+</div>
+</div>
+	<div class="col-md-4">
+		<p>world</p>
+	</div>
+</div>
+{% else %}
+{% endif %}
+{% endblock %}

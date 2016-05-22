@@ -1,0 +1,423 @@
+.inner {
+	width: 300px;
+	margin:auto;
+	padding: 40px 0;
+}
+
+.inner-header {
+	text-align: center;
+}
+
+.logo {
+	width: 160px;
+	height: 74px;
+	background-image: url(/static/img/logo.png);
+	background-repeat:no-repeat;
+	margin: 0 auto;
+	font-size: 0px;
+}
+.subtitle {
+	margin: 30px 0;
+	font-size: 20px;
+
+}
+.inner-nav {
+	padding: 0px 30%;
+	margin-bottom: 10px;
+}
+.signin {
+	display: block;
+}
+.signup {
+	display: none;
+}
+.tishi {
+	color: red;
+}
+.inner-form-middle a {
+	text-decoration: none;
+	float: right;
+	color: black;
+}
+#navbar-dao {
+	background-color: #0078D8;
+}
+.navbar-zi {
+	color: #fff;
+	font-size: 35px;
+	
+}
+.navbar-warp {
+	margin: 0 auto;
+	width: 960px;
+}
+.navbar-search {
+	width: 400px;
+}
+.nav-active {
+	background-color: #0078D8;
+}
+
+#con-inner {
+	margin: 0 auto;
+	width: 960px;
+}
+.list-title {
+	margin-bottom: 10px;
+	color: #666;
+}
+.shezhi {
+	float: right;
+}
+.main {
+	border-top: 1px solid #ccc;
+}
+.content-item {
+	padding: 10px 0px;
+	border-top: 1px solid #eee;
+}
+.avatar {
+	float: left;
+}
+
+.item-main {
+	margin-left: 48px;
+}
+.item-source {
+	color: #999;
+	font-size: 13px;
+}
+
+.img-avatar {
+	width: 40px;
+	height: 40px;
+}
+.item-content {
+	margin-top: 7px;
+}
+.item-content h2 {
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+	font-weight: 700;
+}
+.entry-body {
+	margin-top: 3px;
+}
+.author-info {
+	margin-bottom: 2px;
+	font-size: 13px;
+}
+.author-info a {
+	color: inherit;
+	font-weight: 700;
+	text-decoration: none;
+}
+.item-content a {
+	color: #259;
+	text-decoration: none;
+}
+.item-text {
+	font-size: 13px;
+}
+.text-content {
+	display: none;
+}
+
+.nav-button {
+	border: none;
+	background-color: #0078D8;
+}
+.nav-button li{
+	float: left;
+}
+#shouye {
+	color: #fff;
+	margin-right: 2px;
+	height: 50px;
+	padding: 15px 15px 0 15px;
+}
+#huati {
+	color: #fff;
+	margin-right: 2px;
+	height: 50px;
+	padding: 15px 15px 0 15px;
+}
+#faxian {
+	color: #fff;
+	margin-right: 2px;
+	height: 50px;
+	padding: 15px 15px 0 15px;
+}
+
+#name {
+	width: 130px;
+	color: #fff;
+	height: 50px;
+	padding: 15px 30px 15px 50px;
+}
+#name img {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 9px;
+	left: 10px;
+}
+#name-down {
+	min-width: 130px;
+	background-color: #055fb8;
+	padding: 0px 0px;
+}
+#name-down li {
+	width: 130px;
+
+}
+#name-down a {
+	height: 40px;
+	padding-top: 10px;
+	color: #fff;
+}
+.ask {
+	padding-top: 8px;
+	padding-right: 15px;
+}
+.ask a {
+	height: 34px;
+	width: 70px;
+	background-color: #0e7bef;
+	border: 1px solid #045bb2;
+}
+.tags {
+	margin-bottom: 10px;
+}
+.tag-item {
+	color: #259;
+	height: 25px;
+	border-radius: 10px;
+	background-color: #eff6fa;
+	margin-right: 10px;
+}
+.tag-change {
+	height: 25px;
+	color: #999;
+	border-radius: 5px;
+}
+.question-name {
+	margin-bottom: 10px;
+}
+.question-name h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 22px;
+	font-weight: 700;
+}
+.answers-number {
+	padding: 10px 0;
+	border-top: 1px solid #EEE;
+}
+.answers-number h3 {
+	margin: 0;
+	font-weight: 700;
+	font-size: 14px;
+	padding: 0;
+}
+.answers-contents {
+	border-bottom: 1px solid #EEE;
+}
+.answer-item {
+	padding: 10px 0 5px;
+	border-top: 1px solid #eee;
+}
+
+.author-link {
+	font-weight: 700;
+	color:inherit;
+}
+.answer-actions {
+	margin-bottom: 5px;
+}
+.actions-panel {
+	padding: 5px 0;
+}
+.actions-panel a{
+	margin-right: 10px;
+}
+.comment-app {
+	max-width: 540px;
+}
+.comment-box {
+	margin-top: 1em;
+    margin-bottom: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.comment-item {
+	padding: 0.9em 0;
+	border-top: 1px solid #eee;
+	font-size: 13px;
+}
+.comment-form-root {
+	padding: 1em;
+	margin: 0;
+	border-top: 1px solid #eee;
+	border-radius: 0 0 4px 4px;
+	background: #fbfbfb;
+}
+.comment-input {
+	padding: 9px 0;
+	min-height: 38px;
+	color: #222;
+}
+.comment-input input {
+	font-size: 13px;
+}
+.comment-submit {
+	margin-top: 1em;
+	text-align: right;
+}
+.comment-cance {
+	border: none;
+	background:none;
+	color: #999;
+	margin-right: 0.8em;
+}
+.comment-item-foot {
+	color: #999;
+}
+.comment-item-foot button{
+	border: 0;
+	background: none;
+	padding: 0;
+	outline: 0;
+	margin-left: 0.5em;
+}
+.fenye {
+	text-align: center;
+}
+.question-answer {
+	margin-top: 30px;
+}
+
+.profile-header {
+	margin: 0 0 25px;
+	color: #666;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 #f2f4f5;
+}
+.profile-header-main {
+	padding: 12px 18px;
+}
+.top {
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+.name {
+	font-weight: 700;
+	color: #222;
+}
+.profile-avater {
+	width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    float: left;
+}
+.profile-avater img {
+	width: 100px;
+	height: 100px;
+}
+.profile-header-info {
+	margin-left: 115px;
+	font-size: 13px;
+}
+.describe-item {
+	margin-top: 6px;
+}
+.profile-header-info-change {
+	padding: 12px 18px;
+	border-top: 1px dotted #eee;
+}
+.profile-navbar {
+	background-color: #fcfcfc;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+}
+.profile-navbar-item {
+	border: none;
+	width: 20%;
+	height: 40px;
+	padding-top: 10px;
+}
+
+.profile-section{
+	margin-top: 25px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 #f2f4f5;
+}
+.profile-section-header {
+    padding: 7px 14px;
+    border-bottom: 1px solid #EEE;
+}
+.profile-section-header h2 {
+	font-size: 14px;
+    font-weight: 700;
+    color: #666;
+    padding: 8px 0;
+    margin: 0;
+}
+.profile-section-list {
+	padding: 0 16px;
+}
+.profile-section-item {
+	padding: 12px 0;
+	border-top: 1px dotted #EEE;
+}
+.profile-section-main h2 {
+	margin: 0 0 3px 0;
+	padding: 0;
+	font-size: 14px;
+    font-weight: 700;
+}
+.profile-section-main p {
+	font-size: 13px;
+}
+
+.profile-follow {
+	border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+.profile-follower {
+	float: left;
+    text-decoration: none;
+    padding: 2px 30px 8px 0;
+}
+.profile-followed {
+	padding-left: 20px;
+    border-left: 1px solid #eee;
+    float: left;
+    text-decoration: none;
+    padding: 2px 30px 8px 0;
+}
+.profile-follow a {
+	text-decoration: none;
+}
+.profile-follow span {
+	color: #999;
+    font-weight: 400;
+}
+.profile-follow strong {
+	font-size: 16px;
+    font-weight: 700;
+    color: #666;
+}
+.profile-follow label {
+	font-size: 13px;
+    font-weight: 400;
+    vertical-align: 1px;
+    color: #666;
+    cursor: pointer;
+}

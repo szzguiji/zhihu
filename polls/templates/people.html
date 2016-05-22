@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{ people.name }} - 知乎
+{% endblock %}
+
+{% block content-left %}
+<div class="profile-header">
+	<div class="profile-header-main">
+		<div class="top">
+			<span class="name">{{ people.name }},</span>
+			<span class="people-title">{{ people.description }}</span>
+		</div>
+		<div class="clearfix">
+			<div class="profile-avater">
+				{% if people.img %}
+				<img src="{{ people.img.url }}">
+				{% else %}
+				<img src="https://pic4.zhimg.com/0460a0003_l.jpg">
+				{% endif %}
+			</div>
+			<div class="profile-header-info">
+				<div class="profile-header-user-describe">
+					<div class="describe-item">职业：{{ people.job }}</div>
+					<div class="describe-item">居住地：{{ people.city }}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="profile-header-info-change">
+		{% if people.id == user.id %}
+		<a href="{% url 'polls:profile' people.id %}" class="btn btn-primary" role="button">完善我的资料</a>
+		{% elif follow %}
+		<a href="{% url 'polls:people' people.id %}" people-id="{{ people.id }}" 
+		class="btn btn-primary followed" role="button">取消关注</a>
+		{% else %}
+		<a href="{% url 'polls:people' people.id %}" people-id="{{ people.id }}" 
+		class="btn btn-primary follower" role="button">关注</a>
+		{% endif %}
+	</div>
+	<div class="profile-navbar">
+		<a href="{% url 'polls:people' people.id %}" class="btn btn-default profile-navbar-item" role="button">主页</a>
+		<a href="{% url 'polls:my_asks' people.id %}" class="btn btn-default profile-navbar-item" role="button">提问</a>
+		<a href="{% url 'polls:my_answers' people.id %}" class="btn btn-default profile-navbar-item" role="button">回答</a>
+	</div>
+</div>
+{% block people-asks %}
+<div class="profile-section">
+	<div class="profile-section-header">
+		<h2>提问</h2>
+	</div>
+	<div class="profile-section-list">
+		{% for question in questions %}
+		<div class="profile-section-item">
+			<div class="profile-section-main">
+				<h2><a href="{% url 'polls:question' question.id %}">{{ question.title }}</a></h2>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+{% block people-answers %}
+<div class="profile-section">
+	<div class="profile-section-header">
+		<h2>回答</h2>
+	</div>
+	<div class="profile-section-list">
+		{% for answer in answers %}
+		<div class="profile-section-item">
+			<div class="profile-section-main">
+				<h2><a href="{% url 'polls:question' answer.question.id %}">{{ answer.question.title }}</a></h2>
+				<p>{{ answer.content }}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+{% block data-pagination %}
+{% endblock %}
+
+{% endblock %}
+
+{% block content-right %}
+<div class="profile-follow">
+	<a href="" class="profile-follower">
+		<span>关注了</span><br>
+		<strong>20</strong>
+		<label>人</label>
+	</a>
+	<a href="" class="profile-followed">
+		<span>关注者</span><br>
+		<strong>20</strong>
+		<label>人</label>
+	</a>
+</div>
+{% endblock %}

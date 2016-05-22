@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
+	<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+	<script type="text/javascript" src="{% static 'jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main.js' %}"></script>
+</head>
+{% block polls-body %}
+<body class="polls-body">
+	<div class="nav">
+		<div class="nav-main">
+			<a class="link-logo "href="{% url 'polls:index' %}"><img src="{% static 'img/new_logo.010e8320.png' %}"></a>
+			<div class="search">
+				<form id="search-form" method="POST">
+					<input id="search-keyword" type="text" name="keyword" placeholder="搜索话题、问题或人...">
+					<button type="submit" class="search-submit">
+						<span class="hide-text">搜索</span>
+						<span class="search-image"></span>
+					</button>
+				</form>
+			</div>
+			<div class="nav-top">
+				<ul class="nav-top-ul">
+					<li><a class="top-nav-link" href="{% url 'polls:index' %}">首页</a></li>
+					<li><a class="top-nav-link">话题</a></li>
+					<li><a class="top-nav-link">发现</a></li>
+					<li><a class="top-nav-link">消息</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="polls-main">
+		<div class="main-content">
+			<div class="main-content-inner">
+				{% block main-content-inner %}{% endblock %}
+			</div>
+			<div class="main-sidebar">
+				{% block main-sidebar %}{% endblock %}
+			</div>
+		</div>
+	</div>
+</body>
+{% endblock %}
+<script src="http://vjs.zencdn.net/5.8.8/video.js"></script>
+</html>

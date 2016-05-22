@@ -1,0 +1,26 @@
+{% extends "people.html" %}
+
+{% block title %}
+	{{ people.name }} 提过的问题- 知乎
+{% endblock %}
+
+{% block people-answers %}
+{% endblock %}
+
+{% block data-pagination %}
+<div class="fenye">
+<ul class="pagination">
+	{% if questions.has_previous %}
+	<li><a href="?page={{ paginator.previous_page_number }}">&laquo;</a></li>
+	{% endif %}
+
+	{% for page_number in paginator.page_range %}
+  	<li><a href="?page={{ page_number }}">{{ page_number }}</a></li>
+  	{% endfor %}
+
+  	{% if questions.has_next %}
+	<li><a href="?page={{ paginator.next_page_number }}">&laquo;</a></li>
+	{% endif %}
+</ul>
+</div>
+{% endblock %}

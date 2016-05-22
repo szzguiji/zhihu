@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{ question.title }} - 知乎
+{% endblock %}
+
+{% block content-left %}
+
+<div class="tags">
+	{% for tag in tags %}
+	<a href="" class="btn btn-default btn-xs tag-item" role="button">{{ tag.tag }}</a>
+	<a href="" class="btn btn-default btn-xs glyphicon glyphicon-pencil tag-change" role="button">修改</a>
+	{% endfor %}
+</div>
+<div class="question-name" name="{{ question.id }}">
+	<h2>
+		{{ question.title }}
+		<a href="" class="btn btn-default btn-xs glyphicon glyphicon-pencil tag-change" role="button">修改</a>
+	</h2>
+</div>
+<div class="question-description">
+	{{ question.description }}
+</div>
+<div class="answers-number">
+	<h3>{{ paginator.count }}个回答</h3>
+</div>
+<div class="answers-contents">
+	{% for answer, comments in data %}
+	<div class="answer-item" answer-id="{{ answer.id }}">
+		<div class="answer-header">
+			<div class="answer-author-info">
+				<a class="author-link" href="">{{ answer.author.name }}</a>
+				<span>{{ answer.author.description }}</span>
+			</div>
+		</div>
+		<div class="answer-text">
+			{{ answer.content }}
+		</div>
+		<div class="answer-actions">
+			<div class="actions-panel">
+				<a href="">编辑于{{ answer.datetime|date:"Y-m-d" }}</a>
+				<a class="toggle-comment" href="javascript:void(0);">评论</a>
+			</div>
+			<div class="comment-app" style="display:none">
+				<div class="comment-box" answer-id="{{ answer.id }}">
+					{% for comment in comments %}
+					<div class="comment-item">
+						<div class="comment-item-header" user-from="{{ comment.user_from.id }}" 
+						user-to="{{ comment.user_to.id }}">
+							{% if comment.user_to %}
+								<a href="">{{ comment.user_from.name }}</a>
+								<span>回复</span>
+								<a href="">{{ comment.user_to.name }}</a>
+							{% else %}
+								<a href="">{{ comment.user_from.name }}</a>
+							{% endif %}
+						</div>
+						<div class="comment-content">
+							{{ comment.content }}
+						</div>
+						<div class="comment-item-foot">
+							<span>{{ comment.datetime|date:"Y-m-d H:i" }}</span>
+							<button class="comment-hui">回复</button>
+						</div>
+					<div class="comment-form-root" answer-id="{{ answer.id }}" user-to="{{ comment.user_from.id }}" 
+					style="display:none">
+						<div class="comment-input">
+							<input type="text" class="form-control comment-input-button" 
+							name="comment" placeholder="写下你的评论">
+						</div>
+						<div class="comment-submit">
+							<button class="comment-cance comment-quxiao">取消</button>
+							<button class="btn btn-primary comment-submit-button">提交</button>
+						</div>
+					</div>
+					</div>
+					{% endfor %}
+					<div class="comment-form-root" answer-id="{{ answer.id }}" user-to="">
+						<div class="comment-input">
+							<input type="text" class="form-control comment-input-button comment-button" 
+							name="comment" placeholder="写下你的评论">
+						</div>
+						<div class="comment-submit" style="display:none">
+							<button class="comment-cance quxiao">取消</button>
+							<button class="btn btn-primary comment-submit-button">提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="fenye">
+<ul class="pagination">
+	{% if answers.has_previous %}
+	<li><a href="?page={{ paginator.previous_page_number }}">&laquo;</a></li>
+	{% endif %}
+
+	{% for page_number in paginator.page_range %}
+  	<li><a href="?page={{ page_number }}">{{ page_number }}</a></li>
+  	{% endfor %}
+
+  	{% if answers.has_next %}
+	<li><a href="?page={{ paginator.next_page_number }}">&laquo;</a></li>
+	{% endif %}
+</ul>
+</div>
+<div class="question-answer">
+	<div class="form-group">
+		<textarea class="form-control" rows="8" name="description"></textarea>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">发布回答</button>
+	</div>
+</div>
+{% endblock %}
+
+{% block content-right %}
+{% endblock %}

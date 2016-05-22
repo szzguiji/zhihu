@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{% load staticfiles %}
+		<link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+		{% block nav %}
+		<nav class="navbar navbar-default navbar-static-top" id="navbar-dao" role="navigation">
+			<div class="navbar-warp">
+				<div class="navbar-header">
+      				<a class="navbar-brand"  href="{% url 'polls:index' %}"><span class="navbar-zi">知乎</span></a>
+   				</div>
+   				<div class="navbar-search">
+      				<form class="navbar-form navbar-left" role="search">
+         				<div class="form-group">
+            				<input type="text" class="form-control" placeholder="Search">
+         				</div>
+         				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+      				</form>
+   				</div>
+   				<div class="nav-conetnt navbar-left">
+   				<ul class="nav nav-button">
+   					<li><a id="shouye" href="{% url 'polls:index' %}">首页</a></li>
+   					<li><a id="huati" href="javascript:void(0);">话题</a></li>
+   					<li><a id="faxian" href="javascript:void(0);">发现</a></li>
+   				</ul>
+   				</div>
+
+   				<div class="navbar-right">
+   				<ul class="nav nav-tabs nav-button">
+   					<li class="dropdown" >
+   						<a class="dropdown-toggle" data-toggle="dropdown" id="name" href="people/{{ user.id }}">
+   							<span>{{ user.name }}</span>
+   							<img src="https://pic1.zhimg.com/1e5c8d2384fb2c3d4379107b17ded1bc_m.jpg">
+   						</a>
+   						<ul class="dropdown-menu" id="name-down">
+         					<li><a href="{% url 'polls:people' user.id %}">我的主页</a></li>
+         					<li><a href="#">私信</a></li>
+         					<li><a href="#">设置</a></li>
+         					<li><a href="{% url 'polls:user_logout' %}">退出</a></li>
+      					</ul>
+   					</li>
+				</ul>
+				</div>
+				<div class="navbar-right ask">
+					<a href="{% url 'polls:ask' %}" class="btn btn-primary" role="button">提问</a>
+				</div>
+   			</div>
+		</nav>
+		{% endblock %}
+		<div class="container" id="con-inner">
+			{% block logn %}
+			{% endblock %}
+
+			{% block main %}
+			<div class="row">
+				<div class="col-md-8">
+					{% block content-left %}
+					{% endblock %}
+				</div>
+				<div class="col-md-4">
+					{% block content-right %}
+					{% endblock %}
+				</div>
+			</div>
+			{% endblock %}
+		</div>
+		<script type="text/javascript" src="{% static 'main.js' %}"></script>
+	</body>
+</html>
